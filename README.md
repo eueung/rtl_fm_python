@@ -4,6 +4,8 @@ rtl_fm_python
 An API and web application to interact with a running instance of RTL_FM
 
 <img src="http://th0ma5w.github.io/rtl_fm_python.gif" alt="Screenshot" title="rtl_fm_python" />
+and with html5 audio player
+<img src="http://www.klug.gr/wp-content/uploads/2013/06/websdr.png" alt="Screenshot" title="rtl_fm_python_internet" />
 
 # What
 
@@ -19,7 +21,7 @@ the REST API provided.
 
 I wanted a minimalist remote control for demodulated audio coming from the usb stick
 and something that could also provide that functionality on the Raspberry PI, or
-allow for control of multiple dongles through web scripting and VPNs.
+allow for control of multiple dongles through web scripting, VPNs and internet.
 
 # Features
 
@@ -30,6 +32,7 @@ allow for control of multiple dongles through web scripting and VPNs.
 - Change frequency, demodulation, and gain while running
 - Read the RMS signal level
 - Interact with rtl_fm with Python
+- HTML5 audio player
 
 # License
 
@@ -48,6 +51,8 @@ GPLv2
 
 If you have problems let me know. I may not be able to help as I'm not very experienced 
 with building C applications.
+-Change to your server ip in files web.sh and /static/index.html
+-If your server is behind NAT open and forward tcp ports 10100 and 10101
 
 # Issues
 
@@ -59,13 +64,11 @@ with building C applications.
 
 ## Web Interface & API
 
-Use the script *rtl_fm_python_web.py* as a replacement for *rtl_fm*. If you need to change the
-port or the host, that is available at the end of the file.
-
-Included is a script called *start_web.sh* that shows an example usage. This script tunes to a
-broadcast FM station and pipes the audio to Pulse Audio.
+Included is a script called *web.sh* that shows an example usage. This script tunes to a
+broadcast FM station and pipes the audio to sox, after pipes to vlc to transcode and stream.
 
 By default the application should be running at http://127.0.0.1:10100/
+and the audio stream (ogg) at http://127.0.0.1:10101/
 
 ## Python interactive mode
 
@@ -197,6 +200,7 @@ Sets the device to be in auto gain mode. The gain may read -100 in the above sta
 # Thanks
 
 The rtl-sdr team and community for being awesome.
+Th0ma5w, sox, vlc
 
 
 
