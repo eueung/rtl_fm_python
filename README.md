@@ -53,12 +53,14 @@ If you have problems let me know. I may not be able to help as I'm not very expe
 with building C applications.
 -Change to your server ip in files web.sh and /static/index.html
 -If your server is behind NAT open and forward tcp ports 10100 and 10101
+-Install sox and vlc
 
 # Issues
 
 - Can crash, probably
 - Works best if started with WBFM modulation and sample rates if you're going to be switching around demodulation.
 - May get out of sync with the features of rtl_fm due to my time and interest. Pull requests accepted!
+- Audio delay 15 seconds in streaming
 
 # How to Run
 
