@@ -1,1 +1,1 @@
-./rtl_fm_python_web.py -M wbfm -f 99.5M - | sox -t raw -e si -c 2 -b16 -r 16000 - -t wav --input-buffer 800000 -c 1 - | cvlc - --sout '#transcode{acodec=vorb,ab=32}:standard{access=http,mux=ogg,dst=myserverip:10101}'
+./rtl_fm_python_web.py -M wbfm -f 99.5M -p 31 - | cvlc --demux=rawaud --rawaud-channels=1 --rawaud-samplerate=32000 - --sout '#transcode{acodec=vorb,ab=32}:standard{access=http,mux=ogg,dst=192.168.10.3:10101}'
